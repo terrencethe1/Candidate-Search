@@ -15,12 +15,13 @@ const SavedCandidates = () => {
     localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
   };
 
-
-
+  if (!savedCandidates.length) {
+    return <h2>No saved candidates yet.</h2>;
+  }
 
   return (
-    <>
-      <h1>Potential Candidates</h1>
+    <section style={{ marginTop: '50px' }}>
+    <h1>Potential Candidates</h1>
     </>
   );
 };
