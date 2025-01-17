@@ -20,6 +20,16 @@ const CandidateSearch = () => {
     const data = await searchGithub();
     console.log('searchGithub', data); // logs the search results
     
+    setCandidates(data.map((candidateOBJ:any) => candidateOBJ.login));
+     const candidate = await searchGithubUser(data[0].login);
+    setCandidate(candidate);
+    setCurrentIndex(0);
+  };
+  useEffect(() => {
+    fetchCandidates();
+  }, []);
+
+  const saveCandidate = () => {
 
 
 
