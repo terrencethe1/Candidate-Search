@@ -34,7 +34,24 @@ const CandidateSearch = () => {
     const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
     localStorage.setItem('savedCandidates', JSON.stringify([...saved, currentCandidate]));
     showNextCandidate();
+  
   };
+
+  const showNextCandidate = async () => {
+    if (currentIndex < candidates.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      const candidate = await searchGithubUser(candidates[currentIndex]);
+      setCandidate(candidate);
+    } else {
+      await fetchCandidates();
+
+    }
+  };
+
+  if (!candidates.length) {
+    return <h2>Loading candidates...</h2>;
+  }
+
 
 
 
