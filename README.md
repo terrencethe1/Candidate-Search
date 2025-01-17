@@ -29,13 +29,14 @@ Candidate Search is a web application that allows users to search for GitHub use
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-<br>
+<br><br>
 
 ## Deployed Link
 
-You can view the deployed application [here]
+You can view the deployed application [here](https://candidatesearch-0ngz.onrender.com).
 
-![Screenshot of the Application](public/screenshot1.png)<br>
+
+![Screenshot of the Application](public/screenshot1.png)<br><br>
 ![Screenshot of the Application](public/screenshot2.png)
 
 
