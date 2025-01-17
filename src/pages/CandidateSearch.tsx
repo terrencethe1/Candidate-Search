@@ -25,11 +25,17 @@ const CandidateSearch = () => {
     setCandidate(candidate);
     setCurrentIndex(0);
   };
-  useEffect(() => {
+    useEffect(() => {
     fetchCandidates();
   }, []);
 
-  const saveCandidate = () => {
+    const saveCandidate = () => {
+
+    const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
+    localStorage.setItem('savedCandidates', JSON.stringify([...saved, currentCandidate]));
+    showNextCandidate();
+  };
+
 
 
 
