@@ -47,10 +47,38 @@ const CandidateSearch = () => {
 
     }
   };
-
+ 
   if (!candidates.length) {
     return <h2>Loading candidates...</h2>;
   }
+
+
+  return (
+    <section className="candidate-container">
+      <h1>Candidate Search</h1>
+      <div className="candidate-card">
+        <img src={currentCandidate?.avatar_url} alt="Candidate Avatar" />
+        <h2>{currentCandidate?.login}</h2>
+        <p>Location: {currentCandidate?.location || 'Unknown'}</p>
+        <p>Email: {currentCandidate?.email || 'Not available'}</p>
+        <p>Company: {currentCandidate?.company || 'Not specified'}</p>
+        <p>Bio: {currentCandidate?.bio || 'No bio available'}</p>
+        <div className="button-container">
+          <button onClick={rejectCandidate} className="reject">
+            <span>−</span>
+          </button>
+          <button onClick={saveCandidate} className="save">
+            <span>+</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CandidateSearch;
+
+
 
 
 
