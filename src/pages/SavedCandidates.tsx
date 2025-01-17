@@ -9,6 +9,13 @@ const SavedCandidates = () => {
     setSavedCandidates(saved);
   }, []);
 
+  const rejectCandidate = (index: number) => {
+    const updatedCandidates = savedCandidates.filter((_, i) => i !== index);
+    setSavedCandidates(updatedCandidates);
+    localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
+  };
+
+
 
 
   return (
