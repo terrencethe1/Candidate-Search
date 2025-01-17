@@ -4,6 +4,11 @@ import { Candidate } from '../interfaces/Candidate.interface';
 
 const SavedCandidates = () => {
   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
+    setSavedCandidates(saved);
+  }, []);
+
 
 
   return (
