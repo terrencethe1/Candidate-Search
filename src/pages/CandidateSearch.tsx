@@ -14,6 +14,14 @@ const CandidateSearch = () => {
   const [candidates, setCandidates] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [currentCandidate, setCandidate] = useState<Candidate | null>(null);
+
+  const fetchCandidates = async () => {
+    const data = await searchGithub();
+    console.log('searchGithub', data); // logs the search results
+    
+
+
 
 
 
