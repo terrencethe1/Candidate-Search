@@ -10,6 +10,12 @@ interface Candidate {
   bio?: string;
 }
 
+const CandidateSearch = () => {
+  const [candidates, setCandidates] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+
+
 
 const CandidateSearch = () => {
   return <h1>CandidateSearch</h1>;
