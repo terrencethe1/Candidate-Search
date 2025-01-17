@@ -20,21 +20,26 @@ const CandidateSearch = () => {
     const data = await searchGithub();
     console.log('searchGithub', data); // logs the search results
     
+   
     setCandidates(data.map((candidateOBJ:any) => candidateOBJ.login));
+    
      const candidate = await searchGithubUser(data[0].login);
     setCandidate(candidate);
     setCurrentIndex(0);
   };
-    useEffect(() => {
+  useEffect(() => {
     fetchCandidates();
   }, []);
 
-    const saveCandidate = () => {
-
+  const saveCandidate = () => {
+  
     const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
     localStorage.setItem('savedCandidates', JSON.stringify([...saved, currentCandidate]));
     showNextCandidate();
-  
+  };
+
+  const rejectCandidate = () => {
+    showNextCandidate();
   };
 
   const showNextCandidate = async () => {
@@ -47,10 +52,11 @@ const CandidateSearch = () => {
 
     }
   };
- 
+
   if (!candidates.length) {
     return <h2>Loading candidates...</h2>;
   }
+
 
 
   return (
@@ -79,15 +85,3 @@ const CandidateSearch = () => {
 export default CandidateSearch;
 
 
-
-
-
-
-
-
-
-
-  return <h1>CandidateSearch</h1>;
-};
-
-export default CandidateSearch;

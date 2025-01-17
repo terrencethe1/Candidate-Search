@@ -4,6 +4,7 @@ import { Candidate } from '../interfaces/Candidate.interface';
 
 const SavedCandidates = () => {
   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
+
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
     setSavedCandidates(saved);
@@ -21,9 +22,9 @@ const SavedCandidates = () => {
 
   return (
     <section style={{ marginTop: '50px' }}>
-    <h1>Potential Candidates</h1>
-    
-    <table style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}>
+
+      <h1>Potential Candidates</h1>
+      <table style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}>
         <thead>
           <tr>
             <th>Image</th>
@@ -36,7 +37,7 @@ const SavedCandidates = () => {
           </tr>
         </thead>
         <tbody>
-        {savedCandidates.map((candidate, index) => (
+          {savedCandidates.map((candidate, index) => (
             <tr key={index}>
               <td><img src={candidate.avatar_url} alt="Avatar" width="70px" /></td>
               <td>{candidate.login}</td>
@@ -58,7 +59,3 @@ const SavedCandidates = () => {
 };
 
 export default SavedCandidates;
-
-
-
-

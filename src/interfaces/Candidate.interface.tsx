@@ -7,3 +7,5 @@ export interface Candidate {
     company: string | null;
     bio: string | null;
   }
+
+
