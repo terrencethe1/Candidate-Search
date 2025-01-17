@@ -36,8 +36,29 @@ const SavedCandidates = () => {
           </tr>
         </thead>
         <tbody>
-
+        {savedCandidates.map((candidate, index) => (
+            <tr key={index}>
+              <td><img src={candidate.avatar_url} alt="Avatar" width="70px" /></td>
+              <td>{candidate.login}</td>
+              <td>{candidate.location || 'Unknown'}</td>
+              <td>{candidate.email || 'Not available'}</td>
+              <td>{candidate.company || 'Not specified'}</td>
+              <td>{candidate.bio || 'No bio available'}</td>
+              <td>
+                <button onClick={() => rejectCandidate(index)} className="reject">
+                  <span>−</span>
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
   );
 };
 
 export default SavedCandidates;
+
+
+
+
